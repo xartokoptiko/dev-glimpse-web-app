@@ -1,38 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# dev-glimpse
 
-## Getting Started
+This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
-First, run the development server:
+If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+## Running the application in dev mode
+
+You can run your application in dev mode that enables live coding using:
+```shell script
+./mvnw compile quarkus:dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Packaging and running the application
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The application can be packaged using:
+```shell script
+./mvnw package
+```
+It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
+Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+If you want to build an _über-jar_, execute the following command:
+```shell script
+./mvnw package -Dquarkus.package.type=uber-jar
+```
 
-## Learn More
+The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
 
-To learn more about Next.js, take a look at the following resources:
+## Creating a native executable
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You can create a native executable using: 
+```shell script
+./mvnw package -Pnative
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
+```shell script
+./mvnw package -Pnative -Dquarkus.native.container-build=true
+```
 
-## Deploy on Vercel
+You can then execute your native executable with: `./target/dev-glimpse-1.0.0-SNAPSHOT-runner`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Provided Code
+
+### RESTEasy Reactive
+
+Easily start your Reactive RESTful Web Services
+
+[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
