@@ -1,56 +1,29 @@
 # dev-glimpse
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## Description
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+dev-glimpse is the ultimate developers' hub, providing a centralized platform for developers to stay updated with hot development topics, articles, daily development tips, and a unique feature called "Get a hand." The app leverages AI to generate weekly hot development topics and articles, helping developers stay informed and inspired.
 
-## Running the application in dev mode
+## Features
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./mvnw compile quarkus:dev
-```
+### Hot Development Topics and Articles
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+Every week, dev-glimpse utilizes AI technology to generate and showcase the hottest development topics and articles. Developers can explore these trending subjects to gain insights, discover new techniques, and stay up-to-date with the ever-evolving world of software development.
 
-## Packaging and running the application
+### Daily Development Tips
 
-The application can be packaged using:
-```shell script
-./mvnw package
-```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+dev-glimpse offers daily development tips to provide developers with bite-sized, practical advice and insights. These tips cover a wide range of programming languages, frameworks, and best practices, helping developers enhance their skills and improve their coding practices.
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+### Get a Hand
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
+The "Get a hand" feature is a unique aspect of dev-glimpse that allows users to seek assistance with their code-related problems. Users can post their code snippets and describe the issues they are facing. Other developers within the community can contribute their expertise and knowledge to help solve the problem. Additionally, AI algorithms are employed to provide relevant suggestions and solutions, similar to the popular platform Stack Overflow.
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+## Catch Phrase
 
-## Creating a native executable
+"The ultimate developers hub"
 
-You can create a native executable using: 
-```shell script
-./mvnw package -Pnative
-```
+## Conclusion
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
-```
+dev-glimpse aims to provide a comprehensive platform for developers to access the latest development topics, articles, daily tips, and collaborative problem-solving. By leveraging AI technology, the app aims to foster a vibrant community where developers can learn, share, and grow together.
 
-You can then execute your native executable with: `./target/dev-glimpse-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
-
-## Provided Code
-
-### RESTEasy Reactive
-
-Easily start your Reactive RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+For more information or to access dev-glimpse, visit [dev-glimpse-web-app](https://example.com).
